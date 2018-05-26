@@ -1,0 +1,20 @@
+/* CSS declarations go here */
+
+body { padding-top: 70px; }
+
+.custom {
+    margin-right: 10px;
+}
+
+.tab-pane{
+    height:67vh;
+    overflow-y:scroll;
+    width:100%;
+    margin-top: 1vh;
+}
+
+
+.panel-body {
+    height: 450px;
+    overflow-y:scroll;
+}
