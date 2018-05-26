@@ -13,7 +13,7 @@ module.exports = {
   app: {
     // TODO: change app name and path
     name: 'messagingApp',
-    path: '../messagingApp',
+    path: '/messagingApp',
 
     servers: {
       one: {
