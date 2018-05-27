@@ -26,8 +26,6 @@ class App extends Component {
                         <Route exact path="/" component={Home} />
                         <Route exact path="/register" component={Register} />
                         <Route exact path="/msg/:id" render={props => <Msg {...props}/>} />
-                        {/*<Route path="/about" component={About} />
-                        <Route path="/topics" component={Topics} />*/}
                     </div>
                 </div>
             </Router>

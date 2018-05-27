@@ -38,7 +38,7 @@ Meteor.methods({
             throw new Meteor.Error('not-authorized');
         }
 
-        Messages.update({conversationsId: data, sender: sender}, {$set:{seen: true}}, {multi: true});
+        Messages.update({conversationsId: data, sender: sender, seen: false}, {$set:{seen: true}}, {multi: true});
 
     }
 });

@@ -59,32 +59,6 @@ class Conversations extends Component {
                     });
                 });
             });
-            /*let x = 0;
-            return msg.map((data) => {
-                const arrayMsg = data.messages;
-                const wd = arrayMsg.length;
-                return data.conversations.map((a) => {
-                    let count = 0;
-                    return this.props.usersData.map((user) => {
-                        if(a === user._id && a != Meteor.userId()){
-                            return arrayMsg.map((b, i) => {
-                                if(b.seen === false && b.name != Meteor.user().username) {
-                                    ++count;
-                                }
-                                if(wd === i + 1) {
-                                    return(
-                                        <Link to={"/msg/"+ user._id} key={++x}>
-                                            <ListGroupItem header={user.username} className={count > 0 ? "list-group-item-info" : ""} key={++x}>
-                                                {b.content} {count > 0 ? <Badge pullRight={true}>unread {count}</Badge>: ""}
-                                            </ListGroupItem>
-                                        </Link>
-                                    );
-                                }
-                            });
-                        }
-                    });
-                });
-            });*/
         }
     }
 
@@ -98,33 +72,6 @@ class Conversations extends Component {
                 <Tab eventKey={1} title="Messages">
                     <div className={"tab-pane"}>
                         <ListGroup>
-                            {/*<ListGroupItem header="Arjel Ramos" bsStyle="info">
-                                I'm so Gwapo! <Badge pullRight={true}>5</Badge>
-                            </ListGroupItem>
-                            <ListGroupItem header="Daryll Malicsi">
-                                You're Road!
-                            </ListGroupItem>
-                            <ListGroupItem header="Junne Arellano">
-                                Let's Play PUBG!
-                            </ListGroupItem>
-                            <ListGroupItem header="Arjel Ramos" bsStyle="info">
-                                I'm so Gwapo!
-                            </ListGroupItem>
-                            <ListGroupItem header="Daryll Malicsi">
-                                You're Road!
-                            </ListGroupItem>
-                            <ListGroupItem header="Junne Arellano">
-                                Let's Play PUBG!
-                            </ListGroupItem>
-                            <ListGroupItem header="Arjel Ramos" bsStyle="info">
-                                I'm so Gwapo! <Badge pullRight={true}>5</Badge>
-                            </ListGroupItem>
-                            <ListGroupItem header="Daryll Malicsi">
-                                You're Road!
-                            </ListGroupItem>
-                            <ListGroupItem header="Junne Arellano">
-                                Let's Play PUBG!
-                            </ListGroupItem>*/}
                             {this.renderMessages()}
                         </ListGroup>
                     </div>
