@@ -16,17 +16,19 @@ class Msg extends Component {
     }
 
     componentWillMount(){
-        console.log(this.props.chat)
         if(this.props.chat != undefined) {
-            if(this.props.user != undefined) {
-                let data = {
-                    name: this.props.match.params.id,
-                    username: this.props.user.username,
-                    seen: true
-                }
-                let data2 = this.props.chat._id;
-                //Meteor.call('conversations.setSeen',data2, data);
-            }
+                let data = this.props.chat._id;
+                let sender = this.props.match.params.id
+                Meteor.call('messages.setSeen', data,sender);
+
+        }
+    }
+    componentDidUpdate() {
+        if(this.props.chat != undefined) {
+            let data = this.props.chat._id;
+            let sender = this.props.match.params.id
+            Meteor.call('messages.setSeen', data,sender);
+
         }
     }
 
