@@ -25,41 +25,5 @@ Meteor.methods({
         }
 
         Conversations.insert(data);
-    },
-    /*'conversations.setSeen'(_id, data) {
-        check(_id, String);
-
-        if(!this.userId) {
-            throw new Meteor.Error('not-authorized');
-        }
-
-        let convo = Conversations.update({_id: _id, conversations:{$all:[Meteor.userId(),data.name]},
-            messages:{$elemMatch:{name: data.username}, $elemMatch: {seen:false}}},{ $set: {'messages.$.seen': data.seen}});
-
-        let test = Conversations.findOne({_id: _id, conversations:{$all:[Meteor.userId(),data.name]},
-            messages:{$elemMatch:{name: data.username}}});
-        console.log(test)
-        console.log(data.name);
-        console.log(convo);
-
-
-    },
-    'conversations.update'(_id, data) {
-
-        check(_id, String);
-        check(data, Object);
-
-        if(!this.userId) {
-            throw new Meteor.Error('not-authorized');
-        }
-
-        Conversations.update(_id,{ $push: { messages: {
-                    name: data.name,
-                    content: data.content,
-                    createAt: new Date(),
-                    seen: data.seen
-                }
-            }
-        });
-    }*/
+    }
 });

@@ -116,18 +116,6 @@ class Contacts extends Component {
 
 
 export default withTracker(() => {
-   /* let contactSub = Meteor.subscribe('contacts');
-    let userSub = Meteor.subscribe('users');
-    let contact = [];
-    let user = [];
-    if(contactSub.ready() &&  userSub.ready()) {
-        contact = contactsData.find({contactOwner: Meteor.userId()}).fetch()
-        user = Meteor.users.find({}).fetch()
-        return {
-            contacts: contact,
-            usersData: user,
-        };
-    }*/
     Meteor.subscribe('contacts');
     Meteor.subscribe('users');
     return {

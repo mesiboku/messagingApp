@@ -16,7 +16,7 @@ class Msg extends Component {
     }
 
     componentWillMount(){
-        if(this.props.chat != undefined) {
+        if(this.props.chat !== undefined) {
                 let data = this.props.chat._id;
                 let sender = this.props.match.params.id
                 Meteor.call('messages.setSeen', data,sender);
@@ -24,7 +24,7 @@ class Msg extends Component {
         }
     }
     componentDidUpdate() {
-        if(this.props.chat != undefined) {
+        if(this.props.chat !== undefined) {
             let data = this.props.chat._id;
             let sender = this.props.match.params.id
             Meteor.call('messages.setSeen', data,sender);
@@ -101,22 +101,6 @@ class Msg extends Component {
                     }
                 });
             }
-            /*let x = 0;
-            return msg.messages.map((data) => {
-                if(data.name === Meteor.user().username) {
-                    return(
-                        <div className="well well-sm text-right" key={++x}>
-                             {data.content} :Me
-                        </div>
-                    );
-                } else {
-                    return(
-                        <div className="well well-sm " key={++x}>
-                            {data.name}: {data.content}
-                        </div>
-                    );
-                }
-            });*/
         }
     }
     render() {
@@ -133,8 +117,6 @@ class Msg extends Component {
                                 </Panel.Title>
                             </Panel.Heading>
                             <Panel.Body>
-                                {/*<div className="well well-sm">Me: Hi Arjel!</div>
-                                <div className="well well-sm text-right">Hello Tester! : Arjel</div>*/}
                                 {this.renderMsg()}
                             </Panel.Body>
                         </Panel>
