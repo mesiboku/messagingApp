@@ -2,7 +2,7 @@ import { Meteor } from 'meteor/meteor';
 import { Mongo } from 'meteor/mongo';
 import { check } from 'meteor/check';
 import ReactDOM from "react-dom";
-
+import { Conversations as convo } from '../api/conversations';
 
 export const Messages = new Mongo.Collection('messages');
 
@@ -25,13 +25,20 @@ Meteor.methods({
 
         Messages.insert(data);
     },
-    'messages.setSeen'(data) {
-        check(data, Object);
+    'messages.setSeen'(data,sender) {
+        check(data, String);
+        check(sender, String);
 
         if(!this.userId) {
             throw new Meteor.Error('not-authorized');
         }
+        const checkConvo = convo.findOne({_id:data});
+        console.log(checkConvo)
+        if(!checkConvo) {
+            throw new Meteor.Error('not-authorized');
+        }
 
+        Messages.update({conversationsId: data, sender: sender}, {$set:{seen: true}}, {multi: true});
 
     }
 });

@@ -4,7 +4,7 @@ module.exports = {
       // TODO: set host address, username, and authentication method
       host: 'ec2-52-14-63-241.us-east-2.compute.amazonaws.com',
       //username: 'ubuntu',
-       pem: '~/.ssh/authorized_keys'
+      pem: 'E:\Downloads\arjel.pem'
       // password: 'server-password'
       // or neither for authenticate from ssh-agent
     }
@@ -17,9 +17,10 @@ module.exports = {
 
     servers: {
       one: {
+          // TODO: set host address, username, and authentication method
           host: 'ec2-52-14-63-241.us-east-2.compute.amazonaws.com',
           //username: 'ubuntu',
-          pem: '~/.ssh/authorized_keys'
+          pem: 'E:\Downloads\arjel.pem'
           // password: 'server-password'
           // or neither for authenticate from ssh-agent
       },
@@ -32,9 +33,10 @@ module.exports = {
     env: {
       // TODO: Change to your app's url
       // If you are using ssl, it needs to start with https://
+      PORT: 80,
       ROOT_URL: 'http://ec2-52-14-63-241.us-east-2.compute.amazonaws.com',
       MONGO_URL: 'mongodb://mongodb/meteor',
-      MONGO_OPLOG_URL: 'mongodb://mongodb/local',
+      MONGO_OPLOG_URL: 'mongodb://mongodb/msgApp',
     },
 
     docker: {
