@@ -1,4 +1,4 @@
-# messagingApp
+# Messaging App
 Meteor + React Messanger Project
 
 
