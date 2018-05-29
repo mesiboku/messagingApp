@@ -79,11 +79,11 @@ class Conversations extends Component {
                 <Tab eventKey={2} title="Contacts">
                     <Contacts />
                 </Tab>
-                <Tab eventKey={3} title="Account">
+                {/*<Tab eventKey={3} title="Account">
                     <div className={"tab-pane"}>
                     <Accounts />
                     </div>
-                </Tab>
+                </Tab>*/}
             </Tabs>
         );
     }
