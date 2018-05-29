@@ -5,8 +5,10 @@ import { Link } from 'react-router-dom';
 import ReactDOM from 'react-dom';
 import { Conversations as convo } from '../api/conversations';
 import { Messages as messagesData } from '../api/messages';
+import {Meteor} from "meteor/meteor";
 
 
+import Login from "./login";
 class Msg extends Component {
 
     constructor(props){
@@ -106,35 +108,44 @@ class Msg extends Component {
     render() {
         let userData = Meteor.users.findOne({_id : this.props.match.params.id});
         return(
-            <div className="container-fluid">
-                <div className={"row"}>
-                    <div className="col-lg-12 col-md-12 col-sm-12 col-sx-12">
-                        <Panel>
-                            <Panel.Heading>
-                                <Panel.Title componentClass="h3">
-                                    {userData.username}
-                                    <Link to={"/"} className="btn btn-default pull-right btn-xs">Back</Link>
-                                </Panel.Title>
-                            </Panel.Heading>
-                            <Panel.Body>
-                                {this.renderMsg()}
-                            </Panel.Body>
-                        </Panel>
+            <div>
+                { !this.props.currentUser ?
+                    <div className="col-lg-12 col-sm-12 col-md-12 col-xs-12">
+                        <Login />
                     </div>
-                    <div className="col-lg-12 col-md-12 col-sm-12 col-sx-12">
-                        <form onSubmit={this.handleSubmit.bind(this)}>
-                            <div className="input-group">
-                                <input type="text" className="form-control"  ref="text" placeholder={"Enter Chat....."} required={true}/>
-                                <div className="input-group-btn">
-                                    <button className="btn btn-default" type="submit">
-                                        Send
-                                    </button>
-                                </div>
+                    :
+                    <div className="container-fluid">
+                        <div className={"row"}>
+                            <div className="col-lg-12 col-md-12 col-sm-12 col-sx-12">
+                                <Panel>
+                                    <Panel.Heading>
+                                        <Panel.Title componentClass="h3">
+                                            {userData.username}
+                                            <Link to={"/"} className="btn btn-default pull-right btn-xs">Back</Link>
+                                        </Panel.Title>
+                                    </Panel.Heading>
+                                    <Panel.Body>
+                                        {this.renderMsg()}
+                                    </Panel.Body>
+                                </Panel>
                             </div>
-                        </form>
-                    </div>
-                </div>
+                            <div className="col-lg-12 col-md-12 col-sm-12 col-sx-12">
+                                <form onSubmit={this.handleSubmit.bind(this)}>
+                                    <div className="input-group">
+                                        <input type="text" className="form-control"  ref="text" placeholder={"Enter Chat....."} required={true}/>
+                                        <div className="input-group-btn">
+                                            <button className="btn btn-default" type="submit">
+                                                Send
+                                            </button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>}
             </div>
+
+
         );
     }
 
@@ -148,5 +159,6 @@ export default withTracker((props) => {
         chat: convo.findOne({conversations:{$all:[Meteor.userId(),props.match.params.id]}}),
         messages: messagesData.find({}).fetch(),
         user: Meteor.users.find({_id:props.match.params.id}).fetch(),
+        currentUser: Meteor.user(),
     };
 })(Msg);
