@@ -6,7 +6,6 @@ import { Messages as messagesData } from '../api/messages';
 
 //UI
 import Contacts from "./contacts";
-import Accounts from "./account";
 import {Conversations as convo} from "../api/conversations";
 
 
@@ -43,9 +42,6 @@ class Conversations extends Component {
                                     ++count;
                                 }
                                 if(msgListSize === i + 1) {
-                                    if(obj.sender === user._id) {
-                                        console.log(obj.content)
-                                    }
                                     return(
                                         <Link to={"/msg/"+ user._id} key={++x}>
                                             <ListGroupItem header={user.username} className={count > 0 ? "list-group-item-info" : ""} key={++x}>

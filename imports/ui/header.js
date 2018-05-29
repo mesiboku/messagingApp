@@ -14,7 +14,7 @@ class Header extends Component {
             if (err) {
                 console.log( err.reason );
             } else {
-                this.props.history.push('/');
+                this.props.history.redirect('/');
             }
         });
     }
