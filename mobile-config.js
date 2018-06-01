@@ -8,6 +8,12 @@ App.info({
 });
 
 
+// Access Rules
+App.accessRule("*");
+App.accessRule("https://*.amazonaws.com");
+App.accessRule("https://*.facebook.com");
+App.accessRule("https://*.googelapis.com");
+
 /*
 meteor build ~/home/mesiboku/Meteor-Build --server=http://192.168.1.100:3000 --verbose
 */

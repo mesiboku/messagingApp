@@ -1,20 +1,62 @@
-/* CSS declarations go here */
+/* SCSS declarations go here */
 
 body { padding-top: 70px; }
 
 .custom {
     margin-right: 10px;
+    font-size: 2em;
+    margin-top: 1.5vh;
+    color: #8e8e8e;
 }
 
 .tab-pane{
     height:67vh;
     overflow-y:scroll;
     width:100%;
-    margin-top: 1vh;
+    margin-top: 3vh;
+    overflow-x:hidden !important;
 }
 
 
-.panel-body {
-    height: 450px;
+.panel-body-content {
+    height: 65vh;
     overflow-y:scroll;
+}
+
+
+.profile {
+    width: 50%;
+}
+
+.btn-edit {
+    position: fixed;
+}
+
+
+.user-img {
+    width: 6vh;
+    height: 6vh;
+    position: relative;
+    top: -0.5vh;
+    right: 1vh;
+}
+
+p.name {
+    display: inline;
+    position: relative;
+    top: 1vh;
+    right: 1vh;
+}
+
+
+a.pull-right i {
+    font-size: 8vh;
+    color: #8e8e8e;
+}
+
+.panel-default>.panel-heading {
+    color: #333;
+    background-color: #f5f5f5;
+    border-color: #ddd;
+    height: 8vh;
 }

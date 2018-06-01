@@ -27,9 +27,7 @@ class Header extends Component {
                     <div className="navbar-header">
                         <Link className="navbar-brand" to="/">Messenger</Link>
                         { this.props.currentUser ?
-                        <button className="btn btn-default navbar-btn pull-right custom" onClick={this.logout.bind(this)}>
-                            Logout
-                        </button> :'' }
+                            <i className="fa fa-sign-out pull-right custom" onClick={this.logout.bind(this)}></i> :'' }
                     </div>
                 </div>
             </nav>

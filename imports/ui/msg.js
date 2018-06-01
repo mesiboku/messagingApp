@@ -84,19 +84,18 @@ class Msg extends Component {
         const userData = Meteor.users.findOne({_id : this.props.match.params.id});
         if(msg != undefined) {
             if(msgList != undefined) {
-                let x = 0;
                 return msgList.map((data) =>{
                     if(msg._id === data.conversationsId) {
                         if(data.sender === Meteor.userId()) {
                             return(
-                                <div className="well well-sm text-right" key={++x}>
+                                <div className="well well-sm text-right" key={data._id}>
                                     {data.content} :Me
                                 </div>
                             );
                         } else {
                             return(
-                                <div className="well well-sm " key={++x}>
-                                    {userData.username}: {data.content}
+                                <div className="well well-sm " key={data._id}>
+                                     {userData.username}: {data.content}
                                 </div>
                             );
                         }
@@ -119,12 +118,10 @@ class Msg extends Component {
                             <div className="col-lg-12 col-md-12 col-sm-12 col-sx-12">
                                 <Panel>
                                     <Panel.Heading>
-                                        <Panel.Title componentClass="h3">
-                                            {userData.username}
-                                            <Link to={"/"} className="btn btn-default pull-right btn-xs">Back</Link>
-                                        </Panel.Title>
+                                        <img src={"/img/default-profile.png"} className={"user-img"}/> <p className={"name"}>{userData.username}</p>
+                                        <Link to={"/"} className="btn btn-default pull-right btn-sm">Back</Link>
                                     </Panel.Heading>
-                                    <Panel.Body>
+                                    <Panel.Body className={"panel-body-content"}>
                                         {this.renderMsg()}
                                     </Panel.Body>
                                 </Panel>

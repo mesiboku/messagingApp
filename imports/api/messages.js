@@ -1,7 +1,6 @@
 import { Meteor } from 'meteor/meteor';
 import { Mongo } from 'meteor/mongo';
 import { check } from 'meteor/check';
-import ReactDOM from "react-dom";
 import { Conversations as convo } from '../api/conversations';
 
 export const Messages = new Mongo.Collection('messages');
@@ -33,7 +32,6 @@ Meteor.methods({
             throw new Meteor.Error('not-authorized');
         }
         const checkConvo = convo.findOne({_id:data});
-        console.log(checkConvo)
         if(!checkConvo) {
             throw new Meteor.Error('not-authorized');
         }
