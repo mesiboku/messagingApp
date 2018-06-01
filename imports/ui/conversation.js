@@ -6,6 +6,9 @@ import { Messages as messagesData } from '../api/messages';
 
 //UI
 import Contacts from "./contacts";
+import Accounts from "./account";
+
+//API
 import {Conversations as convo} from "../api/conversations";
 
 
@@ -66,20 +69,16 @@ class Conversations extends Component {
                 onSelect={this.handleSelect}
                 id="controlled-tab-example">
                 <Tab eventKey={1} title="Messages">
-                    <div className={"tab-pane"}>
-                        <ListGroup>
-                            {this.renderMessages()}
-                        </ListGroup>
-                    </div>
+                    <ListGroup>
+                        {this.renderMessages()}
+                    </ListGroup>
                 </Tab>
                 <Tab eventKey={2} title="Contacts">
                     <Contacts />
                 </Tab>
-                {/*<Tab eventKey={3} title="Account">
-                    <div className={"tab-pane"}>
+                <Tab eventKey={3} title="Account">
                     <Accounts />
-                    </div>
-                </Tab>*/}
+                </Tab>
             </Tabs>
         );
     }
